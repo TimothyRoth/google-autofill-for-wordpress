@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Google Autofill for WordPress
- * Plugin URI: www.marketport.de
+ * Plugin URI: www.timothy-roth.de
  * Description: Autofill for Zip Codes and Locations connected via Google Api Key
  * Version: 1.0.0
- * Author: market port GmbH
- * Author URI: www.marketport.de
+ * Author: Timothy Roth
+ * Author URI: www.timothy-roth.de
  * License: GPL2
  * Text Domain: wp_ga_mp
  */
