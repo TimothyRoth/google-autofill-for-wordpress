@@ -8,7 +8,7 @@ const gamp_autocomplete = () => {
     const location_input_class = gamp_settings.gamp_location;
 
     if (api_key === "") {
-        console.error("Please enter your Google API Key in the GAMP Plugin settings.");
+        console.warn("Please enter your Google API Key in the GAMP Plugin settings.");
         return -1;
     }
 
@@ -16,7 +16,7 @@ const gamp_autocomplete = () => {
     const location_inputs = jQuery('.' + location_input_class);
 
     if (zip_code_inputs.length === 0 || location_inputs.length === 0) {
-        console.error("Please enter the correct class for the Zip Code and Location fields in the GAMP Plugin settings.");
+        console.warn("Please enter the correct class for the Zip Code and Location fields in the GAMP Plugin settings.");
         return -1;
     }
 
