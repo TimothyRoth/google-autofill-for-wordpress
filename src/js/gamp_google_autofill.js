@@ -13,7 +13,7 @@ const gamp_autocomplete = () => {
     }
 
     const zip_code_inputs = document.querySelectorAll('.' + zip_code_input_class);
-    const location_inputs = querySelectorAll('.' + location_input_class);
+    const location_inputs = document.querySelectorAll('.' + location_input_class);
 
     if (zip_code_inputs.length === 0 || location_inputs.length === 0) {
         console.warn("Please enter the correct class for the Zip Code and Location fields in the GAMP Plugin settings.");
