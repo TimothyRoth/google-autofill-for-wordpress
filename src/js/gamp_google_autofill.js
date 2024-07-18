@@ -12,29 +12,30 @@ const gamp_autocomplete = () => {
         return -1;
     }
 
-    const zip_code_inputs = jQuery('.' + zip_code_input_class);
-    const location_inputs = jQuery('.' + location_input_class);
+    const zip_code_inputs = document.querySelectorAll('.' + zip_code_input_class);
+    const location_inputs = querySelectorAll('.' + location_input_class);
 
     if (zip_code_inputs.length === 0 || location_inputs.length === 0) {
         console.warn("Please enter the correct class for the Zip Code and Location fields in the GAMP Plugin settings.");
         return -1;
     }
 
-    // Load Google Maps API script with a callback
+    /* Load Google Maps API script with a callback */
     load_google_maps_script(api_key);
 };
 
-const load_google_maps_script = (api_key) => {
+const load_google_maps_script = api_key => {
     const script = document.createElement('script');
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${api_key}&libraries=places&callback=initAutocomplete`;
+    script.src = `https://maps.googleapis.com/maps/api/js?key=${api_key}&libraries=places&callback=autocompleteCallback`;
     script.async = true;
     script.defer = true;
 
     document.head.appendChild(script);
 };
 
-// Define initAutocomplete as a global function
-function initAutocomplete() {
+/* Define the function that will be executed when the google api script is loaded */
+function autocompleteCallback() {
+
     const zip_code_input_class = gamp_settings.gamp_zip_code;
     const location_input_class = gamp_settings.gamp_location;
 
@@ -54,7 +55,7 @@ function initAutocomplete() {
             return;
         }
 
-        // Store initial placeholders
+        /* Store initial placeholders */
         const initialZipPlaceholder = zip_code_input.getAttribute('placeholder') ?? "";
         const initialLocationPlaceholder = location_input.getAttribute('placeholder') ?? "";
 
@@ -66,7 +67,7 @@ function initAutocomplete() {
             types: ['(regions)']
         });
 
-        // Restore initial placeholders after initialization
+        /* Restore initial placeholders after initialization */
         location_input.setAttribute('placeholder', initialLocationPlaceholder);
         zip_code_input.setAttribute('placeholder', initialZipPlaceholder);
 
@@ -90,18 +91,14 @@ function initAutocomplete() {
             } else {
                 console.warn("No postal code found in the selected place.");
             }
-			
 
             if (cityComponent) {
                 location_input.value = cityComponent.long_name;
             } else {
                 console.warn("No city found in the selected place.");
             }
-			
-			/*
-			* Add custom event to the document
-			*/
-			
+
+			/* Add custom event to the document */
 			const event = new CustomEvent('gamp_place_changed');
 			document.dispatchEvent(event);
         });
