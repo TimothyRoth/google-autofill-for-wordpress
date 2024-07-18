@@ -1,4 +1,4 @@
-# Google Autofill MP
+# Google Autofill for WordPress
 
 ## Getting started
 
