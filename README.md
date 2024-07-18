@@ -8,6 +8,5 @@ Just install the plugin and activate it.
 
 Please keep in mind that you have to check the following steps
 
-- You can overwrite the templates from the plugin by putting the single-job.php and archive-job.php in your theme folder
-- Please check the license status under ```General``` => ```Google Jobs Settings```
-- You can use the shortcode ```[google-job-mp job_id="post_id"]``` to display a job on your favorite position
+- You can select the class you want to use for the location and zip input field
+- In your markup the inputs have to be inside the same form and there has to be exactly one of them each
