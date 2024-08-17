@@ -10,8 +10,6 @@
  * Text Domain: wp_ga_mp
  */
 
-
-// Plugin paths
 define('WP_GAMP_PLUGIN_PATH', plugin_dir_path(__FILE__));
 define('WP_GAMP_Plugin_URI', plugin_dir_url(__FILE__));
 
