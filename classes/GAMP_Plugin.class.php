@@ -14,26 +14,6 @@ class GAMP_Plugin
 
     }
 
-    /**
-     * Activate plugin
-     */
-    public function plugin_activation(): void
-    {
-    }
-
-    /**
-     * Deactivate plugin
-     */
-    public function plugin_deactivation(): void
-    {
-    }
-
-    /**
-     * Deactivate plugin
-     */
-    public function plugin_uninstall(): void
-    {
-    }
 
     public function enqueue_scripts(): void
     {
